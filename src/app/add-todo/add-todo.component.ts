@@ -17,7 +17,7 @@ export class AddTodoComponent implements OnInit {
 
   openDialog() {
     const dialogRef = this.dialog.open(AddTodoDialogComponent, {
-      width: '350px',
+      width: '250px',
       data: { title: '', description: '' }
     });
 
