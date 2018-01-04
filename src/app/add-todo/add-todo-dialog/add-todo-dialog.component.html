@@ -1,0 +1,26 @@
+<h1 mat-dialog-title>Add Todo</h1>
+<div mat-dialog-content>
+  <mat-form-field hintLabel="Max 20 characters">
+    <input matInput
+           [(ngModel)]="data.title"
+           maxlength="20"
+           placeholder="Title"
+           required>
+    <mat-hint align="end">{{data.title?.length || 0}}/20</mat-hint>
+  </mat-form-field>
+  <mat-form-field hintLabel="Max 50 characters">
+    <textarea matInput
+              [(ngModel)]="data.description"
+              maxlength="50"
+              placeholder="Description"
+              required>
+    </textarea>
+    <mat-hint align="end">{{data.description?.length || 0}}/50</mat-hint>
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Cancel</button>
+  <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Ok</button>
+</div>
+
+

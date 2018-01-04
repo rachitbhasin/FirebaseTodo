@@ -1,0 +1,28 @@
+<h3>
+  My Fire List
+</h3>
+<div class="container-fluid">
+  <div *ngFor="let item of items$ | async; let i = index" class="mt16">
+    <mat-expansion-panel>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          {{item.title}}
+        </mat-panel-title>
+        <mat-panel-description>
+          Click to view description
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+
+      {{item.description}}
+
+      <mat-action-row>
+        <span>
+          <button mat-raised-button color="warn" (click)="onRemoveTodo(item)">Delete</button>
+        </span>
+        <span class="ml16">
+          <button mat-raised-button color="primary" (click)="onCompleteTodo(item)">Complete</button>
+        </span>
+      </mat-action-row>
+    </mat-expansion-panel>
+  </div>
+</div>
