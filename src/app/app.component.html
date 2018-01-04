@@ -1,0 +1,14 @@
+<mat-toolbar color="primary">
+  <span>Application Title</span>
+
+  <!-- This fills the remaining space of the current row -->
+  <span class="example-fill-remaining-space"></span>
+
+  <span>Right Aligned Text</span>
+</mat-toolbar>
+<ul>
+    <li class="text" style="display:unset" *ngFor="let item of items | async">
+      {{item.title + " - " + item.description}}
+    </li>
+</ul>
+
