@@ -11,7 +11,7 @@ import {ITodoService, Todo} from './todo.interface';
   styleUrls: ['./todos.component.css']
 })
 export class TodosComponent implements OnInit {
-
+  step: string;
   items$: Observable<Todo[]>;
 
   constructor(private todoService: ITodoService) {}
@@ -26,6 +26,10 @@ export class TodosComponent implements OnInit {
     this.todoService.getItemsCollectionRef().doc(todo.id).update({ completed: !todo.completed }).then((response) => {
       console.log('Todo completed with id: ', todo.title);
     });
+  }
+
+  public setStep(id: string) {
+    this.step = id;
   }
 
   ngOnInit() {

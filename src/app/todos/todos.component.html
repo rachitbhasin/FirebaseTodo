@@ -2,27 +2,32 @@
   My Fire List
 </h3>
 <div class="container-fluid">
-  <div *ngFor="let item of items$ | async; let i = index" class="mt16">
-    <mat-expansion-panel>
-      <mat-expansion-panel-header>
-        <mat-panel-title>
-          {{item.title}}
-        </mat-panel-title>
-        <mat-panel-description>
-          Click to view description
-        </mat-panel-description>
-      </mat-expansion-panel-header>
+  <div >
+    <mat-accordion class="todo-headers-align">
+      <div *ngFor="let item of items$ | async; let i = index" [class.completed]="item.completed">
+        <mat-expansion-panel [(expanded)]="step === item.id" (opened)="setStep(item.id)" [(hideToggle)]="item.completed">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              {{item.title}}
+            </mat-panel-title>
+            <mat-panel-description>
+              Click to view description
+            </mat-panel-description>
+            <mat-icon *ngIf="item.completed" color="primary">done</mat-icon>
+          </mat-expansion-panel-header>
 
-      {{item.description}}
+          {{item.description}}
 
-      <mat-action-row>
-        <span>
-          <button mat-raised-button color="warn" (click)="onRemoveTodo(item)">Delete</button>
-        </span>
-        <span class="ml16">
-          <button mat-raised-button color="primary" (click)="onCompleteTodo(item)">Complete</button>
-        </span>
-      </mat-action-row>
-    </mat-expansion-panel>
+          <mat-action-row>
+            <span>
+              <button mat-raised-button color="warn" (click)="onRemoveTodo(item)">Delete</button>
+            </span>
+            <span class="ml16">
+              <button mat-raised-button color="primary" (click)="onCompleteTodo(item)">{{item.completed ? 'Undo' : 'Complete'}}</button>
+            </span>
+          </mat-action-row>
+        </mat-expansion-panel>
+      </div>
+    </mat-accordion>
   </div>
 </div>

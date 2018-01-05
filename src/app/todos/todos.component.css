@@ -1,0 +1,18 @@
+
+.todo-headers-align .mat-expansion-panel-header-title, 
+.todo-headers-align .mat-expansion-panel-header-description {
+  flex-basis: 0;
+  align-items: center;
+}
+
+.todo-headers-align .completed .mat-expansion-panel-header .mat-icon {
+    position: relative;
+    padding-left: 3px;
+    color: green;
+    font-weight: bolder;
+}
+
+.todo-headers-align .completed .mat-expansion-panel-header-title, 
+.todo-headers-align .completed .mat-expansion-panel-header-description {
+  color: green;
+}
