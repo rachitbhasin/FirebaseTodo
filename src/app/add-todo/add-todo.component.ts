@@ -17,13 +17,13 @@ export class AddTodoComponent implements OnInit {
 
   openDialog() {
     const dialogRef = this.dialog.open(AddTodoDialogComponent, {
-      width: '250px',
+      maxWidth: '90%',
+      minWidth: '70%',
+      hasBackdrop: true,
       data: { title: '', description: '' }
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-      console.log(result);
       if (result && result.title.trim() && result.description.trim()) {
         this.addTodo(result.title, result.description);
       }

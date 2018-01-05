@@ -18,15 +18,13 @@ export class TodosComponent implements OnInit {
 
   public onRemoveTodo(todo: Todo) {
     this.todoService.getItemsCollectionRef().doc(todo.id).delete().then((response) => {
-      console.log('Todo deleted with id: ', todo.id);
-      console.log(response);
+      console.log('Todo deleted with id: ', todo.title);
     });
   }
 
   public onCompleteTodo(todo: Todo) {
     this.todoService.getItemsCollectionRef().doc(todo.id).update({ completed: !todo.completed }).then((response) => {
-      console.log('Todo completed with id: ', todo.id);
-      console.log(response);
+      console.log('Todo completed with id: ', todo.title);
     });
   }
 
@@ -39,6 +37,5 @@ export class TodosComponent implements OnInit {
         return { id, ...data };
       });
     });
-    this.items$.subscribe((data) => {console.log(data); });
   }
 }
