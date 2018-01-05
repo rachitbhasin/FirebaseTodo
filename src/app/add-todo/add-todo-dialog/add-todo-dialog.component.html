@@ -1,12 +1,11 @@
 <h1 mat-dialog-title>Add Todo</h1>
-<div mat-dialog-content class="row">
+<div mat-dialog-content class="row" cdkTrapFocus>
   <mat-form-field hintLabel="Max 20 characters" class="col-sm-12 col-xs-12">
     <input matInput
             [(ngModel)]="data.title"
             maxlength="20"
             placeholder="Title"
             cdkFocusInitial
-            tabindex="1"
             required>
     <mat-hint align="end">{{data.title?.length || 0}}/20</mat-hint>
   </mat-form-field>
@@ -14,7 +13,6 @@
     <textarea matInput
               [(ngModel)]="data.description"
               maxlength="50"
-              tabindex="2"
               matTextareaAutosize 
               matAutosizeMinRows="1"
               matAutosizeMaxRows="5"
@@ -25,8 +23,8 @@
   </mat-form-field>
 </div>
 <div mat-dialog-actions align="end">
-  <button mat-button (click)="onNoClick()" tabindex="4">Cancel</button>
-  <button mat-raised-button color="primary" [mat-dialog-close]="data" tabindex="3">Ok</button>
+  <button mat-button (click)="onNoClick()">Cancel</button>
+  <button mat-raised-button color="primary" [mat-dialog-close]="data">Ok</button>
 </div>
 
 
